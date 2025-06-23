@@ -16,6 +16,45 @@ body {
   gap: 20px;
 }
 
+.controls {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.controls label {
+  color: white;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+.controls input {
+  width: 70px;
+  padding: 5px;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+}
+
+.controls button {
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #27ae60;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.controls button:hover {
+  background-color: #219150;
+}
+
 /* Flip Structure */
 .card-wrapper {
   perspective: 1000px;
@@ -41,17 +80,71 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   position: absolute;
   backface-visibility: hidden;
+  color: black;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* Front card flex and positioning */
+.card.front {
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   color: black;
-  padding: 10px;
-  box-sizing: border-box;
 }
 
-.card.front {
-  z-index: 2;
+/* Corners container */
+.corner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+.top-left {
+  top: 12px;
+  left: 12px;
+  text-align: center;
+}
+
+.bottom-right {
+  bottom: 12px;
+  right: 12px;
+  transform: rotate(180deg);
+  text-align: center;
+}
+
+.corner-value {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.corner-suit {
+  font-size: 22px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* Center big suit */
+.center-suit {
+  font-size: 96px;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  margin-top: 10px;
+}
+
+/* Red color for hearts and diamonds */
+.red .corner-value,
+.red .corner-suit,
+.red .center-suit {
+  color: red;
 }
 
 .card.back {
@@ -83,34 +176,7 @@ body {
   text-shadow: 0 0 10px rgba(255,255,255,0.2);
 }
 
-/* Card Corners */
-.corner {
-  position: absolute;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.top-left {
-  top: 8px;
-  left: 10px;
-}
-
-.bottom-right {
-  bottom: 8px;
-  right: 10px;
-  transform: rotate(180deg);
-}
-
-.value {
-  font-size: 64px;
-  font-weight: bold;
-}
-
-.red {
-  color: red;
-}
-
-button {
+button#drawBtn {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #3498db;
@@ -121,6 +187,6 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
+button#drawBtn:hover {
   background-color: #2980b9;
 }

@@ -2,20 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Random Playing Card</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <div class="container">
+
+    <div class="controls">
+      <label>
+        Width (px): 
+        <input type="number" id="cardWidth" value="160" min="50" max="500" />
+      </label>
+      <label>
+        Height (px): 
+        <input type="number" id="cardHeight" value="230" min="50" max="700" />
+      </label>
+      <button id="applySizeBtn">Apply Size</button>
+    </div>
+
     <div class="card-wrapper" id="cardWrapper">
       <div class="card-inner">
         <!-- Front of Card -->
         <div class="card front" id="card">
-          <div class="corner top-left" id="topLeftSuit"></div>
-          <div class="value" id="value"></div>
-          <div class="corner bottom-right" id="bottomRightSuit"></div>
+          <div class="corner top-left">
+            <div id="topLeftValue" class="corner-value"></div>
+            <div id="topLeftSuit" class="corner-suit"></div>
+          </div>
+          <div class="center-suit" id="centerSuit"></div>
+          <div class="corner bottom-right">
+            <div id="bottomRightValue" class="corner-value"></div>
+            <div id="bottomRightSuit" class="corner-suit"></div>
+          </div>
         </div>
 
         <!-- Back of Card -->
@@ -25,7 +44,6 @@
       </div>
     </div>
 
-    <!-- Draw Button -->
     <button id="drawBtn" onclick="flipCard()">Draw New Card</button>
   </div>
 
